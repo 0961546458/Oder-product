@@ -1,0 +1,51 @@
+#footer{
+	background-color: #FBF6A7;
+	margin-top: 10px;
+	padding:1px 0px;
+
+}
+
+
+#footer .icon-footer{
+	margin: auto;
+	display: flex;
+	width: 30%;
+	margin-left: 50%;
+	transform: translateX(-20%);
+	margin-top: 20px;
+}
+
+#footer .social-icons{
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+	border: 1px solid #B1B1B1;
+	background-color: #5A5A5A;
+	border-radius: 40px;
+	position: relative;
+	margin-left: 10px;
+}
+
+#footer .social-icons i{
+	font-size: 170%;
+	color: #FFFFFF;
+	position: absolute;
+	left: 8px;
+    top: 5px;
+}
+#footer .youtube-W{
+	left: 5px !important;
+}
+
+#footer .social-icons:hover{
+	background-color: #FFFFFF;
+}
+
+#footer .social-icons:hover i{
+	color: #0006FF;
+}
+
+#footer .copyright{
+	text-align: center;
+	margin: 30px;
+}

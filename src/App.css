@@ -1,0 +1,105 @@
+@font-face {
+  src: url(font/helvetica/helveticaneue.ttf);
+  font-family: helvetica-Thin;
+}
+@font-face {
+  src: url(font/helvetica/helveticaneuebold.ttf);
+  font-family: helvetica-Bold;
+}
+
+*{
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: helvetica-Thin;
+  font-size: 16px;
+}
+
+.navbarLogo{
+	/*display: flex;*/
+}
+
+.logoCoffee{
+	width: 100px;
+    height: 67px;
+}
+.titelMainCoffee{
+
+}
+
+.amountCart{
+	position: relative;
+}
+
+.icomCart{
+
+}
+.amountOder{
+	position: absolute;
+	top: -14px;
+    left: 10px;
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    color: white;
+    border-radius: 20px;
+    font-family: Roboto-Bold;
+    font-size: 100%;
+}
+
+.LoginRegistration{
+    margin-left: 700px;
+}
+
+.mainLogin{
+	border: 1px solid #B2B0B0 !important;
+	margin-right: 5px;
+}
+
+.registration{
+	border: 1px solid #B2B0B0 !important;
+}
+
+
+#productOder{
+	/*display: none;*/
+}
+#pageLogin{
+	display: none;
+}
+#registration{
+	display: none;
+}
+
+/*---------------simpleSlider------------*/
+
+.simpleSlider{
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.simpleSlider .bt-previous{
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 35px;
+  color: #FB7108;
+
+}
+
+.simpleSlider .bt-previous i, 
+.simpleSlider .bt-next i{
+  font-size: 135%;
+  cursor: pointer;
+}
+
+.simpleSlider .bt-next{
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 35px;
+  color: #FB7108;
+}
