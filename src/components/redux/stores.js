@@ -4,7 +4,9 @@ import {reducerDish,
 	reducerSubtotal, 
 	reducerShowDetails, 
 	reducerProductDetails, 
-	reducerPriceTopping
+	reducerPriceTopping,
+	reducerOderSuccess,
+    reducerMenuActive
 } from './reducers.js';
 
 
@@ -14,7 +16,9 @@ const rootReducer = combineReducers({
     subtotal: reducerSubtotal,
     showDetails: reducerShowDetails,
     productDetails: reducerProductDetails,
-    priceTopping: reducerPriceTopping
+    priceTopping: reducerPriceTopping,
+    oderSuccess: reducerOderSuccess,
+    menuActive: reducerMenuActive
 })
 
 const store = createStore(rootReducer);
