@@ -1,29 +1,127 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {onCloseDetails, onTopping} from '../../redux/actions.js';
+import {onCloseDetails, onTopping, onPlusOderDetails} from '../../redux/actions.js';
 
 function ProductDetails() {
+    
+  const productDetails = useSelector(state => state.productDetails);
 
 	const dispatch = useDispatch();
+
+  let [small, setSmall] = useState(true);
+  let [medium, setMedium] = useState(false);
+  let [big, setBig] = useState(false);
+  let [sumBox, setSumbox] = useState(0);
+  // console.log(small, medium, big)
+  useEffect(() => {
+    dispatch(onTopping(sumBox, small, medium, big));
+  },[sumBox, small, medium, big]);
+
+
+  const priceTopping = useSelector(state => state.priceTopping);
 
 	function closeDetails(){
 		dispatch(onCloseDetails());
 	}
 
+	function plusOderDetails(){
+		dispatch(onPlusOderDetails(productDetails, priceTopping[0]));
+	}
 
-	const productDetails = useSelector(state => state.productDetails);
+	function startIcon(){
+    if(productDetails.star===1){
+      return (
+        <div>
+          <i className="fas fa-star"></i>
+          <i className="far fa-star"></i>
+          <i className="far fa-star"></i>
+          <i className="far fa-star"></i>
+          <i className="far fa-star"></i>
+        </div>
+      )
+    }if(productDetails.star===2){
+      return (
+        <div>
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
+          <i className="far fa-star"></i>
+          <i className="far fa-star"></i>
+          <i className="far fa-star"></i>
+        </div>
+      )
+    }
+    if(productDetails.star===3){
+      return (
+        <div>
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
+          <i className="far fa-star"></i>
+          <i className="far fa-star"></i>
+        </div>
+      )
+    }
+    if(productDetails.star===4){
+      return (
+        <div>
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
+          <i className="far fa-star"></i>
+        </div>
+      )
+    }
+    if(productDetails.star===5){
+      return (
+        <div>
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
+        </div>
+      )
+    }
+  }
 
-	const priceTopping = useSelector(state => state.priceTopping);
+const handleRadioBox = (e, name) =>{
+    setMedium(false); 
+    setBig(false);
+    switch (name) {
+      case 'small':
+        setSmall(true);setBig(false);setMedium(false);
+        setSumbox((productDetails && productDetails.price));
 
-	let [topping, setTopping] = useState('');
+        break;
+      case 'middel':
+        setMedium(true);setSmall(false); setBig(false); 
+        setSumbox((productDetails && productDetails.price) + 6000);
 
-	dispatch(onTopping(topping));
+        break;
+      case 'big':
+        setBig(true);setSmall(false); setMedium(false);
+        setSumbox((productDetails && productDetails.price) + 13000);
+        break;
+      default:
+        // statements_def
+        break;
+    }
+  }
 
+
+  useEffect(() => {
+       setSumbox(productDetails && productDetails.price);
+  },[productDetails]);
+  
   return (
-  	<div className="productDetails">
+  	<div className="productDetails shadowBox">
   		<div className="row wrapControl">
   			<div className="col-sm-6 imageDetails">
-	  			<img src={productDetails.image} alt="sda"/>
+	  			<img className="img-in" src={productDetails.image} alt="sda"/>
+          <div className="picture-titel">
+            <h3>{productDetails.name}</h3>
+          </div>
 	  		</div>
 	  		<div className="col-sm-6 controlDetails">
 	  			<h3 className="nameDetails">{productDetails.name}</h3>
@@ -32,21 +130,24 @@ function ProductDetails() {
 	  				<div className="topping-titel">Size:</div>
 	  				<div className="row">
 	  					<p className="topping-checkbox-list">
-						    <input type="radio" id="test1" name="radio-group" onChange={(e)=>{setTopping(e.target.value)}} value={0} defaultChecked/>
+						    <input type="radio" id="test1" name="radio-group" onClick={(e)=>handleRadioBox(e,'small')}  defaultChecked/>
 						    <label htmlFor="test1">Nhỏ</label>
 						  </p>
 						  <p className="topping-checkbox-list">
-						    <input type="radio" id="test2" name="radio-group" onChange={(e)=>{setTopping(e.target.value)}} value={6000}/>
+						    <input type="radio" id="test2" name="radio-group" onClick={(e)=>handleRadioBox(e,'middel')} />
 						    <label htmlFor="test2">Vừa (+6000đ)</label>
 						  </p>
 						  <p className="topping-checkbox-list">
-						    <input type="radio" id="test3" name="radio-group" onChange={(e)=>{setTopping(e.target.value)}} value={13000}/>
+						    <input type="radio" id="test3" name="radio-group" onClick={(e)=>handleRadioBox(e,'big')}  />
 						    <label htmlFor="test3">Lớn (+13000)</label>
 						  </p>
 	  				</div>
 	  			</div>
-	  			<div className="amountDetails">Giá: {priceTopping}đ</div>
-	  			<button className="oderDetails">Đặt ngay</button>
+	  			<div className="amountDetails">Giá: {sumBox && sumBox.toLocaleString('en')}đ</div>
+	  			<div className="startDetails">
+	  				{startIcon()}
+	  			</div>
+	  			<button className="oderDetails" onClick={plusOderDetails}>Đặt ngay</button>
 	  		</div>
   		</div>
   		<div className="describeDetails">
