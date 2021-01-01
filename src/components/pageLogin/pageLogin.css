@@ -112,7 +112,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=text] {
+input[type=text], input[type=password], input[type=number]{
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -133,12 +133,16 @@ input[type=text] {
   border-radius: 5px 5px 5px 5px;
 }
 
-input[type=text]:focus {
+input[type=text]:focus ,
+input[type=password]:focus,
+, input[type=number]:focus{
   background-color: #fff;
   border-bottom: 2px solid #5fbae9;
 }
 
-input[type=text]:placeholder {
+input[type=text]:placeholder,
+input[type=password]:placeholder,
+, input[type=number]:placeholder {
   color: #cccccc;
 }
 
@@ -256,4 +260,51 @@ input[type=text]:placeholder {
 
 #icon {
   width:60%;
+}
+
+/*------------------css modal---------------*/
+
+.modal {
+  /*display: block;*/
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+
+#formContent{
+  position: relative;
+}
+
+#formContent .close {
+  position: absolute;
+  top: 0px;
+  right: 8px;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10
+}
+
+#formContent .close:hover{
+  color: black;
+  text-decoration: none !important;
 }

@@ -1,5 +1,4 @@
-.note
-{
+.note{
     text-align: center;
     height: 80px;
     background: -webkit-linear-gradient(left, #0072ff, #8811c5);
@@ -7,8 +6,7 @@
     font-weight: bold;
     line-height: 80px;
 }
-.form-content
-{
+.form-content{
     padding: 5%;
     border: 1px solid #ced4da;
     margin-bottom: 2%;
@@ -16,8 +14,7 @@
 .form-control{
     border-radius:1.5rem;
 }
-.btnSubmit
-{
+.btnSubmit{
     border:none;
     border-radius:1.5rem;
     padding: 1%;
@@ -34,4 +31,66 @@
 
 .note p{
     margin-left: -126px;
+}
+#registration{
+    margin-top: 3%;
+}
+.form-content{
+    background: white;
+}
+.form-group{
+    text-align: center;
+}
+.submitRegistration{
+    text-align: center;
+}
+.register-form .note p{
+    margin: auto;
+}
+
+/*------------------css modal---------------*/
+
+.modal {
+  /*display: block;*/
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+
+.register-form{
+  position: relative;
+}
+
+.register-form .close {
+  position: absolute;
+  top: 0px;
+  right: 22px;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10
+}
+
+#formContent .close:hover{
+  color: black;
+  text-decoration: none !important;
 }

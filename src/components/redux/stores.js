@@ -1,4 +1,4 @@
-import {createStore, combineReducers} from 'redux';
+import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {reducerDish, 
 	reducerBought, 
 	reducerSubtotal, 
@@ -6,8 +6,16 @@ import {reducerDish,
 	reducerProductDetails, 
 	reducerPriceTopping,
 	reducerOderSuccess,
-    reducerMenuActive
+    reducerMenuActive,
+    reducerNumberOder,
+    reducerShowModalLogin,
+    reducerDataLogin,
+    reducerLoginSuccess,
+    reducerShowModelRegistration,
+    reducerDelivered,
+    reducerDataAdminLogin
 } from './reducers.js';
+import thunk from 'redux-thunk';
 
 
 const rootReducer = combineReducers({
@@ -18,9 +26,16 @@ const rootReducer = combineReducers({
     productDetails: reducerProductDetails,
     priceTopping: reducerPriceTopping,
     oderSuccess: reducerOderSuccess,
-    menuActive: reducerMenuActive
+    menuActive: reducerMenuActive,
+    numberOder: reducerNumberOder,
+    showModalLogin: reducerShowModalLogin,
+    dataLogin: reducerDataLogin,
+    loginSuccess: reducerLoginSuccess,
+    modelRegistration: reducerShowModelRegistration,
+    delivered: reducerDelivered,
+    dataAdminLogin: reducerDataAdminLogin
 })
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export default store;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {onDetails} from '../redux/actions.js';
+import {onDetails, onShowOptions, onPlusItem} from '../redux/actions.js';
 
 function FrontMain() {
 	const dispatch = useDispatch();
@@ -11,6 +11,11 @@ function FrontMain() {
 
 	function details(){
         dispatch(onDetails(dish));
+    }
+    
+    function showOptions(){
+        dispatch(onShowOptions());
+        dispatch(onPlusItem(dish));
     }
 
 	function startIcon(){
@@ -70,26 +75,35 @@ function FrontMain() {
 	    }
 	  }
 
-        return (
-        	<div className="col-sm-4 iteam-frontmain" key={index}>
-				<div className="card card-item cardIteamWap">
-				  	<div className="wap-Image">
-				  		<img className="card-img-top" src={dish.image} alt={dish.name}/>
-					  	<div className="btn-oder">
-					  		<h3>{dish.name}</h3>
-					  	</div>
+    return (
+    	<div className="col-6 col-sm-6 col-md-4 iteam-frontmain" key={index}>
+			<div className="card card-item cardIteamWap">
+			  	<div className="wap-Image">
+			  		<img className="card-img-top" src={dish.image} alt={dish.name}/>
+				  	<div className="btn-oder">
+				  		<h3>{dish.name}</h3>
 				  	</div>
-				  	<div className="card-body">
-					    <h5 className="card-title">{dish.name}</h5>
-					    <p className="card-text">{dish.describe}</p>
-					    <a className="cart-btn btn btn-warning btn-Oder" onClick={details}>Chi tiết</a>
-					    <div className="startIteamm">
-				            {startIcon()}
-			            </div>
+				  	<div className={dish.selling ? "selling showDetails" : "hiddenDetails"}>
+				  		<img src="./imge/bestseller.png" alt="bán chạy"/>
+				  		<span>BÁN CHẠY</span>
 				  	</div>
-				</div>
-	  		</div>
-        )
+			  	</div>
+			  	<div className="card-body">
+				    <h5 className="card-title">{dish.name}</h5>
+				    <p className="card-text">{dish.describe}</p>
+				    <div className="amountDetails">Giá: {dish.price.toLocaleString('en')}đ</div>
+				    <div className="startIteamm">
+			            {startIcon()}
+		            </div>
+				    <div className="btn-OderIteam">
+			            <button type="button" className="btn btn-warning cart-btn btn-Oder btn-adms" onClick={details}>Chi tiết</button>
+			            <button type="button" className="btn btn-danger icomPlus btn-Oder" onClick={showOptions}>Đặt hàng</button>
+		            </div>
+				    
+			  	</div>
+			</div>
+  		</div>
+    )
     })
   return (
   	<div id="frontMain" >

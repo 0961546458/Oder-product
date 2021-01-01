@@ -1,0 +1,296 @@
+{
+  "dishDefault": [
+    {
+      "id": 1,
+      "name": "Bạc xỉu",
+      "price": 35000,
+      "describe": "Theo chân những người gốc Hoa đến định cư tại Sài Gòn, Bạc sỉu là cách gọi tắt của “Bạc tẩy xỉu phé” trong tiếng Quảng Đông, chính là: Ly sữa trắng kèm một chút cà phê.",
+      "image": "./imge/bac_siu.jpg",
+      "star": 5,
+      "selling": true
+    },
+    {
+      "id": 2,
+      "name": "Espresso-nóng",
+      "price": 45000,
+      "describe": "Một phiên bản “upgrade” từ ly cà phê sữa quen thuộc, nhưng lại tỉnh táo và tươi mát hơn bởi lớp đá xay đi kèm. Nhấp 1 ngụm là thấy đã, ngụm thứ hai thêm tỉnh táo và cứ thế lôi cuốn bạn đến giọt cuối cùng.",
+      "image": "./imge/espressonong.jpg",
+      "star": 4,
+      "selling": false
+    },
+    {
+      "id": 3,
+      "name": "Chanh sả dá xay",
+      "price": 20000,
+      "describe": "Một phiên bản “upgrade” từ ly cà phê sữa quen thuộc, nhưng lại tỉnh táo và tươi mát hơn bởi lớp đá xay đi kèm. Nhấp 1 ngụm là thấy đã, ngụm thứ hai thêm tỉnh táo và cứ thế lôi cuốn bạn đến giọt cuối cùng.",
+      "image": "./imge/chanh_sa_da_xay.jpg",
+      "star": 2,
+      "selling": false
+    },
+    {
+      "id": 4,
+      "name": "Macca",
+      "price": 10000,
+      "describe": "Một phiên bản “upgrade” từ ly cà phê sữa quen thuộc, nhưng lại tỉnh táo và tươi mát hơn bởi lớp đá xay đi kèm. Nhấp 1 ngụm là thấy đã, ngụm thứ hai thêm tỉnh táo và cứ thế lôi cuốn bạn đến giọt cuối cùng.",
+      "image": "./imge/macca.jpg",
+      "star": 1,
+      "selling": false
+    },
+    {
+      "id": 1,
+      "name": "Bạc xỉu",
+      "price": 35000,
+      "describe": "Theo chân những người gốc Hoa đến định cư tại Sài Gòn, Bạc sỉu là cách gọi tắt của “Bạc tẩy xỉu phé” trong tiếng Quảng Đông, chính là: Ly sữa trắng kèm một chút cà phê.",
+      "image": "./imge/bac_siu.jpg",
+      "star": 5,
+      "selling": true
+    },
+    {
+      "id": 2,
+      "name": "Espresso-nóng",
+      "price": 45000,
+      "describe": "Một phiên bản “upgrade” từ ly cà phê sữa quen thuộc, nhưng lại tỉnh táo và tươi mát hơn bởi lớp đá xay đi kèm. Nhấp 1 ngụm là thấy đã, ngụm thứ hai thêm tỉnh táo và cứ thế lôi cuốn bạn đến giọt cuối cùng.",
+      "image": "./imge/espressonong.jpg",
+      "star": 4,
+      "selling": false
+    },
+    {
+      "id": 3,
+      "name": "Chanh sả dá xay",
+      "price": 20000,
+      "describe": "Một phiên bản “upgrade” từ ly cà phê sữa quen thuộc, nhưng lại tỉnh táo và tươi mát hơn bởi lớp đá xay đi kèm. Nhấp 1 ngụm là thấy đã, ngụm thứ hai thêm tỉnh táo và cứ thế lôi cuốn bạn đến giọt cuối cùng.",
+      "image": "./imge/chanh_sa_da_xay.jpg",
+      "star": 2,
+      "selling": false
+    },
+    {
+      "id": 4,
+      "name": "Macca",
+      "price": 10000,
+      "describe": "Một phiên bản “upgrade” từ ly cà phê sữa quen thuộc, nhưng lại tỉnh táo và tươi mát hơn bởi lớp đá xay đi kèm. Nhấp 1 ngụm là thấy đã, ngụm thứ hai thêm tỉnh táo và cứ thế lôi cuốn bạn đến giọt cuối cùng.",
+      "image": "./imge/macca.jpg",
+      "star": 1,
+      "selling": false
+    }
+  ],
+  "useAdmin": [
+    {
+      "useName": "admin",
+      "password": "123456"
+    },
+    {
+      "useName": "admin2",
+      "password": "456789"
+    },
+    {
+      "useName": "admin3",
+      "password": "789123"
+    }
+  ],
+  "users": [
+    {
+      "useName": "admin",
+      "password": "123456",
+      "phone": "090123213",
+      "name": "Nguyễn Văn Cương",
+      "address": "70 Quang trung",
+      "email": "nguyenvancuong.bbb@gmail.com",
+      "id": 1
+    },
+    {
+      "useName": "e",
+      "password": "e",
+      "phone": "010210312",
+      "name": "eeeeeeeeeeeeeeeeeeeee",
+      "address": "01 Lê duẩn",
+      "email": "",
+      "id": 2
+    },
+    {
+      "useName": "admin2",
+      "password": "456789",
+      "phone": "ưerew",
+      "name": "ẻ",
+      "address": "rưerew",
+      "email": "rư",
+      "id": 3
+    },
+    {
+      "useName": "q",
+      "password": "123456",
+      "phone": "e",
+      "name": "e",
+      "address": "e",
+      "email": "",
+      "id": 5
+    }
+  ],
+  "oderSuccess": [
+    {
+      "idLogin": 2,
+      "address": "01 Lê duẩn",
+      "name": "eeeeeeeeeeeeeeeeeeeee",
+      "phone": "010210312",
+      "email": "",
+      "note": "",
+      "subtotal": 85000,
+      "date": "1-1-2021",
+      "cart": [
+        {
+          "id": 2,
+          "idDish": 2,
+          "name": "Espresso-nóng",
+          "price": 45000,
+          "amount": 1
+        },
+        {
+          "id": 1,
+          "idDish": 3,
+          "name": "Chanh sả dá xay",
+          "price": 20000,
+          "amount": 2
+        }
+      ],
+      "id": 1
+    },
+    {
+      "idLogin": 2,
+      "address": "01 Lê duẩn",
+      "name": "eeeeeeeeeeeeeeeeeeeee",
+      "phone": "010210312",
+      "email": "",
+      "note": "",
+      "subtotal": 45000,
+      "date": "1-1-2021",
+      "cart": [
+        {
+          "id": 4,
+          "idDish": 4,
+          "name": "Macca",
+          "price": 10000,
+          "amount": 1
+        },
+        {
+          "id": 3,
+          "idDish": 1,
+          "name": "Bạc xỉu",
+          "price": 35000,
+          "amount": 1
+        }
+      ],
+      "id": 2
+    }
+  ],
+  "delivered": [
+    {
+      "idLogin": 1,
+      "address": "70 Quang trung",
+      "name": "Nguyễn Văn Cương",
+      "phone": "090123213",
+      "email": "",
+      "note": "",
+      "subtotal": 105000,
+      "date": "29-12-2020",
+      "cart": [
+        {
+          "id": 1,
+          "idDish": 1,
+          "name": "Bạc xỉu",
+          "price": 35000,
+          "amount": 3
+        }
+      ],
+      "id": 4
+    },
+    {
+      "idLogin": 2,
+      "address": "01 Lê duẩn",
+      "name": "eeeeeeeeeeeeeeeeeeeee",
+      "phone": "010210312",
+      "email": "",
+      "note": "",
+      "subtotal": 45000,
+      "date": "30-12-2020",
+      "cart": [
+        {
+          "id": 2,
+          "idDish": 4,
+          "name": "Macca",
+          "price": 10000,
+          "amount": 1
+        },
+        {
+          "id": 1,
+          "idDish": 1,
+          "name": "Bạc xỉu",
+          "price": 35000,
+          "amount": 1
+        }
+      ],
+      "id": 1
+    },
+    {
+      "idLogin": 1,
+      "address": "70 Quang trung",
+      "name": "Nguyễn Văn Cương",
+      "phone": "090123213",
+      "email": "",
+      "note": "",
+      "subtotal": 113000,
+      "date": "30-12-2020",
+      "cart": [
+        {
+          "id": 3,
+          "idDish": 3,
+          "name": "Chanh sả dá xay",
+          "price": 20000,
+          "amount": 1
+        },
+        {
+          "id": 2,
+          "idDish": 2,
+          "name": "Espresso-nóng",
+          "price": 45000,
+          "amount": 1
+        },
+        {
+          "id": 1,
+          "idDish": 1,
+          "name": "Bạc xỉu",
+          "price": 48000,
+          "amount": 1,
+          "size": "lớn"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "idLogin": 2,
+      "address": "01 Lê duẩn",
+      "name": "eeeeeeeeeeeeeeeeeeeee",
+      "phone": "010210312",
+      "email": "",
+      "note": "",
+      "subtotal": 96000,
+      "date": "30-12-2020",
+      "cart": [
+        {
+          "id": 3,
+          "idDish": 2,
+          "name": "Espresso-nóng",
+          "price": 51000,
+          "amount": 1,
+          "size": "vừa"
+        },
+        {
+          "id": 2,
+          "idDish": 2,
+          "name": "Espresso-nóng",
+          "price": 45000,
+          "amount": 1
+        }
+      ],
+      "id": 2
+    }
+  ]
+}

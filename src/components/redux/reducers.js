@@ -1,50 +1,9 @@
 
-let dishDefault = [
-    { 
-        "id": 1, 
-        "name" : "Bạc xỉu",
-        "price": 35000, 
-        "describe":"Theo chân những người gốc Hoa đến định cư tại Sài Gòn, Bạc sỉu là cách gọi tắt của “Bạc tẩy xỉu phé” trong tiếng Quảng Đông, chính là: Ly sữa trắng kèm một chút cà phê.",
-        "image": "./imge/bac_siu.jpg",
-        "star" : 5,
-        "size" : "nhỏ"
-    },
-    { 
-        "id": 2, 
-        "name" : "Espresso-nóng",
-        "price": 45000, 
-        "describe":"Một phiên bản “upgrade” từ ly cà phê sữa quen thuộc, nhưng lại tỉnh táo và tươi mát hơn bởi lớp đá xay đi kèm. Nhấp 1 ngụm là thấy đã, ngụm thứ hai thêm tỉnh táo và cứ thế lôi cuốn bạn đến giọt cuối cùng.",
-        "image": "./imge/espressonong.jpg",
-        "star" : 4,
-        "size" : "nhỏ"
-    },
-    { 
-        "id": 3, 
-        "name" : "Chanh sả dá xay",
-        "price": 20000, 
-        "describe":"Một phiên bản “upgrade” từ ly cà phê sữa quen thuộc, nhưng lại tỉnh táo và tươi mát hơn bởi lớp đá xay đi kèm. Nhấp 1 ngụm là thấy đã, ngụm thứ hai thêm tỉnh táo và cứ thế lôi cuốn bạn đến giọt cuối cùng.",
-        "image": "./imge/chanh_sa_da_xay.jpg",
-        "star" : 2,
-        "size" : "nhỏ"
-    },
-    { 
-        "id": 4, 
-        "name" : "Macca",
-        "price": 10000, 
-        "describe":"Một phiên bản “upgrade” từ ly cà phê sữa quen thuộc, nhưng lại tỉnh táo và tươi mát hơn bởi lớp đá xay đi kèm. Nhấp 1 ngụm là thấy đã, ngụm thứ hai thêm tỉnh táo và cứ thế lôi cuốn bạn đến giọt cuối cùng.",
-        "image": "./imge/macca.jpg",
-        "star" : 1,
-        "size" : "nhỏ"
-    }
-]
+let dishDefault = [];
 
 let bought = [];       // arr sản phẩm được Oder
 
 let subtotal = 0;      // tổng tiền thanh toán
-
-let productNumber = 0; // số lượng sản phẩm
-
-let searchbox = '';    // tìm kiếm
 
 let showDetails = 0; // hiển thị form chi tiết sản phẩm
 
@@ -52,128 +11,38 @@ let productDetails = {}; // arr chi tiết sản phẩm
 
 let priceTopping = 0;    // tỏng tiền trong chi tiết sp có thêm topping
 
-let oderSuccess = {};    // oder thành công
+let oderSuccess = [];    // dữ liệu oder thành công
 
 let menuActive = 0 ;      // active dòng kẻ xanh nav
 
+let numberOder = 0;      // số lượng sản phẩm được Oder
+
+let showModalLogin = false // bật tắt modal Login
+
+let showModelRegistration = false // bật tắt modal Đăng ký
+
+let dataLogin = [];        // arr các tài khoản người dùng đăng nhập
+
+let loginSuccess = false;   // Đả đăng nhập  / chưa đăng nhập
+
+let delivered = [];         // đơn hàng đã được giao đi
+
+let dataAdminLogin = [];    // arr tài khoản Admin đăng nhập
+
 export function reducerDish(state=dishDefault, action){
     switch(action.type){
+        
+        case "FETCH_DATA" : {
+            return action.payload
+        }
 
         case "SEARCHBOX" : {
-            if(action.payload){
-                let stateSeach = dishDefault.filter((task) => {
-                    return task.name.toUpperCase().indexOf(action.payload.toUpperCase()) !== -1;
-                });
-                return [...stateSeach]
-            }
-
-            if(action.payload === ''){
-                return dishDefault
-            }
+            return action.searchbox
         }
 
         case "FIND_PRICE_START" : {
-
-            switch (true) {
-                case action.price1:{
-                    var stateSeach = dishDefault.filter((task) => {
-                        return task.price < 15000;
-                    });
-                    return stateSeach
-                }
-                case action.price2:{
-                    var stateSeach = dishDefault.filter((task) => {
-                        return task.price > 15000 && task.price <= 30000;
-                    });
-                    return stateSeach
-                }
-                case action.price3:{
-                    var stateSeach = dishDefault.filter((task) => {
-                        return task.price > 30000;
-                    });
-                    return stateSeach
-                }
-                default:
-                    // statements_def
-                    break;
-            }
-
-
-            console.log(action.price1,action.price2,action.price3)
-
-            // if(action.price1 === true){
-            //     var stateSeach1 = dishDefault.filter((task) => {
-            //         return task.price < 15000;
-            //     });
-            //     return [...stateSeach1]
-            // }
-            // if(action.price2 === true){
-            //     var stateSeach2 = dishDefault.filter((task) => {
-            //         return task.price > 15000 && task.price <= 30000;
-            //     });
-            //     return [...stateSeach2]
-            // }
-            // if(action.price3 === true){
-            //     var stateSeach3 = dishDefault.filter((task) => {
-            //         return task.price > 30000;
-            //     });
-            //     return [...stateSeach3]
-            // }
-                
-            
-            // if(action.price1 == true || action.price2 == true || action.price3 == true){
-            //     return [...stateSeach]
-            // }
-            // if(action.price1 == false && action.price2 == false && action.price3 == false){
-            //     return dishDefault
-            // }
-
-            if(action.start1 === true){
-                var stateStart = dishDefault.filter((task) => {
-                    return task.star === 1;
-                });
-                return [...stateStart]
-            }
-            if(action.start2 === true){
-                var stateStart = dishDefault.filter((task) => {
-                    return task.star === 2;
-                });
-                return [...stateStart]
-            }
-            if(action.start3 === true){
-                var stateStart = dishDefault.filter((task) => {
-                    return task.star === 3;
-                });
-                return [...stateStart]
-            }
-            if(action.start4 === true){
-                var stateStart = dishDefault.filter((task) => {
-                    return task.star === 4;
-                });
-                return [...stateStart]
-            }
-            if(action.start5 === true){
-                var stateStart = dishDefault.filter((task) => {
-                    return task.star === 5;
-                });
-                return [...stateStart]
-            }
-
-            // if(action.start1 == true || action.start2 == true || action.start3 == true || action.start4 == true || action.start5 == true ){
-            //     return [...stateStart]
-            // }
-            if(action.start1 === false && 
-            action.start2 === false && 
-            action.start3 === false && 
-            action.start4 === false && 
-            action.start5 === false && 
-            action.price1 === false && 
-            action.price2 === false && 
-            action.price3 === false) {
-                return dishDefault
-            }
+            return action.stateSeach
         }
-        break;
 
         default: {
             return state
@@ -211,8 +80,11 @@ export function reducerBought(state=bought, action){
         }
 
         case "MINUSMINI" : {
-            if(state[action.index].amount>0){
+            if(state[action.index].amount>1){
                 state[action.index].amount -= 1;
+                return [...state]
+            }else {
+                state.splice(action.index, 1)
                 return [...state]
             }
         }
@@ -235,6 +107,7 @@ export function reducerBought(state=bought, action){
                     name: action.payload.name,
                     price: action.priceTopping,
                     amount:1,
+                
                     size: action.payload.size
                 }
                 return [dish, ...state]
@@ -242,6 +115,11 @@ export function reducerBought(state=bought, action){
                 state[index].amount ++;
                 return [...state]
             }
+        }
+        
+        case "LOGOUT" : {
+            state = [];
+            return state
         }
 
         default: {
@@ -284,7 +162,11 @@ export function reducerSubtotal(state=subtotal, action){
             let a = parseInt(state) + parseInt(action.priceTopping);
             return a
         }
-
+        
+        case "LOGOUT" : {
+            state = 0;
+            return state
+        }
 
         default: {
             return state
@@ -305,6 +187,11 @@ export function reducerShowDetails(state=showDetails, action){
             return state
         }
         
+        case "RESET_SHOW_DETAILS_3" : {
+            state = 3;
+            return state
+        }
+
         case "SHOW_VIEW_CART" : {
             state = 2;  // 0 == false
             return state
@@ -314,17 +201,16 @@ export function reducerShowDetails(state=showDetails, action){
             state = 0;
             return state
         }
-        
-        // case "CLOSE_VIEW_CART" : {
-        //     state = 0;  // 0 == false
+
+        case "SHOW_INFORMATION" : {
+            state = 4;
+            return state
+        }
+
+        // case "LOGOUT" : {
+        //     state = 0;
         //     return state
         // }
-        
-        // case "CHANGE_DETAILS" : {
-        //     state = 3;  // 0 == false
-        //     return state
-        // }
-    
         default: {
             return state
         }
@@ -369,30 +255,8 @@ export function reducerProductDetails(state=productDetails, action){
 
 export function reducerPriceTopping(state=priceTopping, action){
     switch(action.type){
-        
-        // case "DETAILS" : {
-        //     state = action.payload.price;
-        //     return state
-        // }
 
         case "SETTOPPING" : {
-            // console.log(state);
-            // console.log(action.small,action.medium,action.big);
-            // var stateDefault = state;
-            // if(action.small == true) {
-            //     let stateNew1 = stateDefault;
-            //     return stateNew1
-            // }
-            // if(action.medium == true) {
-            //     let stateNew2 = stateDefault + 6000;
-            //     stateDefault = stateDefault - 60000;
-            //     return stateNew2
-            // }
-            // if(action.big == true) {
-            //     let stateNew3 = stateDefault + 13000;
-            //     stateDefault = stateDefault - 13000;
-            //     return stateNew3
-            // }
             state = action.sumBox;
             return [state]
         }
@@ -406,9 +270,18 @@ export function reducerPriceTopping(state=priceTopping, action){
 export function reducerOderSuccess(state=oderSuccess, action){
     switch(action.type){
         
-        case "ODER_SUCCESS" : {
-            state = action.payload;
+        case "FETCH_SUCCESS" : {
+            state = action.oderSuccess;
             return state
+        }
+
+        case "ODER_SUCCESS" : {
+            return [...state, action.payload]
+        }
+        
+        case "DELETE_ODER_SUCCESS" : {
+            state.splice(action.index, 1)
+            return [...state]
         }
 
         default: {
@@ -434,6 +307,168 @@ export function reducerMenuActive(state=menuActive, action){
             state = 2;
             return state
         }
+
+        default: {
+            return state
+        }
+    }      
+}
+
+export function reducerNumberOder(state=numberOder, action){
+    switch(action.type){
+        
+        case "PLUSITEAM" : {
+            state++;
+            return state
+        }
+        
+        case "PLUSMINI" : {
+            state++;
+            return state
+        }
+        
+        case "MINUSMINI" : {
+            if (state >=1 ) {
+                state--;
+            }
+            return state
+        }
+        
+        case "DELETEMINI" : {
+            let a = action.payload.amount;
+            state = state-a;
+            return state
+        }
+        
+        case "PLUS_ODER_DETAILS" : {
+            state++;
+            return state
+        }
+        
+        case "LOGOUT" : {
+            state = 0;
+            return state
+        }
+        
+        default: {
+            return state
+        }
+    }      
+}
+
+export function reducerShowModalLogin(state=showModalLogin, action){
+    switch(action.type){
+        
+        case "SHOW_MODAL" : {
+            state = true;
+            return state
+        }
+
+        case "CLOSE_MODAL" : {
+            state = false;
+            return state
+        }
+
+        default: {
+            return state
+        }
+    }      
+}
+
+export function reducerDataLogin(state=dataLogin, action){
+    switch(action.type){
+        
+        case "FETCH_LOGIN" : {
+            state = action.dataLogin
+            return state
+        }
+        
+        case "UPDATE_REGISTRATION" : {
+            return [...state, action.account]
+        }
+        
+        case "DELETE_USE" : {
+            state.splice(action.index, 1)
+            return [...state]
+        }
+
+        default: {
+            return state
+        }
+    }      
+}
+
+export function reducerLoginSuccess(state=loginSuccess, action){
+    switch(action.type){
+        
+        case "LOGIN_SUCCESS" : {
+            state = true;
+            return state
+        }
+        
+        case "LOGOUT" : {
+            state = false;
+            return state
+        }
+
+        default: {
+            return state
+        }
+    }      
+}
+
+export function reducerShowModelRegistration(state=showModelRegistration, action){
+    switch(action.type){
+        
+        case "SHOW_REGISTRATION" : {
+            state = true;
+            return state
+        }
+
+        case "CLOSE_REGISTRATION" : {
+            state = false;
+            return state
+        }
+
+        default: {
+            return state
+        }
+    }      
+}
+
+export function reducerDelivered(state=delivered, action){
+    switch(action.type){
+        
+        case "FETCH_DELIVERED" : {
+            state = action.dataDelivered;
+            return state
+        }
+        
+        case "UPDATE_DELIVERED" : {
+            let data = action.dataDelivered;
+            console.log(data)
+            return [data, ...state]
+        }
+        
+        case "DELETE_ONE_DELIVERED" : {
+            state.splice(action.index, 1)
+            return [...state]
+        }
+
+        default: {
+            return state
+        }
+    }      
+}
+
+export function reducerDataAdminLogin(state=dataAdminLogin, action){
+    switch(action.type){
+        
+        case "FETCH_ADMIN_LOGIN" : {
+            state = action.dataAdminLogin;
+            return state
+        }
+        
 
         default: {
             return state

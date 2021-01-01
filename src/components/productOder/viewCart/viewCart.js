@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {onOderSuccess} from '../../redux/actions.js';
 import MiniCardIteam from '../MiniCartIteam.js';
+import ShowSuccess from './showSuccess.js';
 
-function ViewCart() {
+function ViewCart(props) {
+
+  var today = new Date()
+  var date = today.getDate() + '-' + (today.getMonth()+1) + '-' +today.getFullYear() ;
+
+  const idLogin = props.idLogin;
 
 	const dispatch = useDispatch();
 
@@ -11,32 +17,67 @@ function ViewCart() {
 
 	const subtotal = useSelector(state => state.subtotal);
 
+  const loginSuccess = useSelector(state => state.loginSuccess);
+  
+  const dataLogin = useSelector(state => state.dataLogin);
+
 	let [address, setAddress] = useState('');
 	let [name, setName] = useState('');
 	let [phone, setPhone] = useState('');
 	let [email, setEmail] = useState('');
 	let [note, setNote] = useState('');
-	
+
+  let [showSuccess, setShowSuccess] = useState(false);
+
+  var idLoginSuccess = props.idLogin;
+  
+	useEffect(()=>{
+    if(loginSuccess){
+      var index = dataLogin.findIndex(function(item, i){
+        return item.id == idLoginSuccess;
+      });
+      if(index>=0){
+        let nameLogin = dataLogin[index].name;
+        setAddress(dataLogin[index].address);
+        setName(dataLogin[index].name);
+        setPhone(dataLogin[index].phone);
+      }
+    }
+    if(loginSuccess === false){
+      setAddress('');
+      setName('');
+      setPhone('');
+    }
+  },[loginSuccess])
+
+
 	function handleSubmit(e){
 		e.preventDefault();
-
 		if(address !== "" && name !== "" && phone !== ""){
-			let oderSuccess = {
-				address,
-				name,
-				phone,
-				email,
-				note,
-				subtotal,
-				cart : bought
-			};
-			dispatch(onOderSuccess(oderSuccess));
-			console.log(oderSuccess)
+			if (loginSuccess) {
+        let oderSuccess = {
+          idLogin,
+          address,
+          name,
+          phone,
+          email,
+          note,
+          subtotal,
+          date,
+          cart : bought
+        };
+        dispatch(onOderSuccess(oderSuccess));
+        console.log(oderSuccess);
+        setShowSuccess(true);
+      }else {
+        alert("Bạn chưa đăng nhập")
+      }
 		}
 	}
 
   return (
-  	<div className="row">
+  	<div>
+      <div className={showSuccess === false ? "row wrap-viewCart" : "hiddenDetails"}>
         <form className="viewCart col-sm-7 shadowBox" onSubmit={handleSubmit}>
           <div className="titelCart">
             <h3>Thanh toán và giao hàng</h3>
@@ -70,11 +111,13 @@ function ViewCart() {
         </form>
 
         <div className="col-sm-5">
-          
-                <MiniCardIteam/>
-
+          <MiniCardIteam/>
         </div>
-    </div>  
+      </div>
+      <div className={showSuccess ? "showDetails" : "hiddenDetails"}>
+        <ShowSuccess/>
+      </div>
+    </div>
   );
 }
 
