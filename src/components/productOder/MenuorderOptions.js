@@ -85,7 +85,7 @@ function MenuorderOptions() {
               {startIcon()}
             </div>
             <div className="btn-OderIteam">
-              <button type="button" className="btn btn-warning btn-Oder" onClick={details}>Chi tiết</button>
+              <button type="button" className="btn btn-warning btn-Oder btn-adms" onClick={details}>Chi tiết</button>
               <button type="button" className="btn btn-danger icomPlus btn-Oder" onClick={plusItem}>Thêm</button>
             </div>
       		</div>

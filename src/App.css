@@ -25,10 +25,10 @@
   /*display: none;*/
 }
 #pageLogin{
-  display: none;
+  /*display: none;*/
 }
 #registration{
-  display: none;
+  /*display: none;*/
 }
 .simpleSlider{
   /*display: none;*/
@@ -42,10 +42,109 @@
   /*padding: 10px;*/
 }
 
+/*----------------------Admin-------------------*/
+
+.admin{
+  width: 100%;
+  height: 30px;
+  background-color: #000000;
+  color: #FFFFFF;
+}
+.admin a{
+  float: right;
+  margin-right: 10px;
+  cursor: pointer;
+  line-height: 30px;
+  text-decoration: underline #FFFFFF ;
+}
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main-admin {
+  margin-left: 200px; /* Same as the width of the sidenav */
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.orderManagement .dateOder{
+  margin-top: 0px ;
+}
+
+.orderManagement .titelCart h3{
+  font-family: helvetica-Bold;
+}
+
+.history .dateOder{
+  font-size: 130%;
+  float: left;
+}
+.history .dateOder div{
+  font-family: helvetica-Bold;
+}
+.history .dateOder span{
+  font-size: 130%;
+}
+
+.history .dropdown{
+  float: right;
+  margin-right: 45px;
+}
+.history .btn-delete{
+  margin-right: 10px;
+}
+
+.history .btn-delete-all{
+  margin-right: 45px;
+  margin-bottom: 20px;
+  float: right;
+}
+
+.userManagement .btn-del-use{
+  height: 33px;
+  line-height: 20px;
+}
+
+
+
+
+
+
+
+
+
+
 /*--------------------NAV---------------*/
+
+
 
 .nav-control{
   width: 100%;
+  height: 60px;
 }
 
 .logoCoffee{
@@ -56,10 +155,26 @@
 .amountCart{
 	position: relative;
   margin-right: 20px;
+  cursor: pointer;
+  margin: auto;
 }
 
 .icomCart{
+ color: #FF7C42;
+}
 
+.amountOder{
+  position: absolute;
+  top: -14px;
+  left: 10px;
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  color: white;
+  border-radius: 20px;
+  font-family: Roboto-Bold;
+  font-size: 100%;
 }
 
 .iteam-Menu a{
@@ -84,19 +199,6 @@
   border-bottom: 4px solid #0BD1FB;
 }
 
-.amountOder{
-	position: absolute;
-	top: -14px;
-    left: 10px;
-    background-color: red;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    color: white;
-    border-radius: 20px;
-    font-family: Roboto-Bold;
-    font-size: 100%;
-}
 
 .nav-LeftIn{
   display: flex;
@@ -104,6 +206,7 @@
 
 .LoginRegistration{
   margin-right: 20px;
+  display: flex;
 }
 
 .mainLogin{
@@ -113,6 +216,16 @@
 
 .registration{
 	border: 1px solid #B2B0B0 !important;
+}
+
+.greeting{
+  margin: auto;
+  margin-right: 20px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.btn-logout{
 }
 
 
@@ -161,9 +274,12 @@
   font-size: 35px;
   color: #FB7108;
 }
+.simpleSlider img{
+  width: 100%;
+  height: 100%;
+}
 
-
-/*---------------------Menu-Chính----------------------------*/
+/*---------------------Menu-Chính--frontMain--------------------------*/
 
 #frontMain{
   margin-top: 15px;
@@ -171,7 +287,7 @@
 
 .iteam-frontmain{
   margin-bottom: 10px;
-  height: 550px;
+  height: 600px;
 }
 
 .cardIteamWap{
@@ -179,11 +295,11 @@
   border:2px solid #0C2AA9;
 }
 
-.iteam-frontmain img{
+.iteam-frontmain .card-img-top{
   transition: all .8s;
 }
 
-.iteam-frontmain:hover img{
+.iteam-frontmain:hover .card-img-top{
   transform: scale(1.1);
 }
 
@@ -237,10 +353,14 @@
 .cart-btn{
   
 }
+.btn-OderIteam{
+  float: left;
+}
 
 .btn-Oder{
   margin-left: 5px;
   color: #FFFFFF;
+  z-index: 3;
 }
 
 .btn-Oder:hover{
@@ -252,7 +372,24 @@
   color: #F90000;
 }
 
-
+.selling{
+  position: absolute;
+  top: 5px;
+  right: 0px;
+  background-color: #EA8025;
+  height: 35px;
+  padding-right: 10px;
+}
+.selling img{
+  width: 45px;
+  height: 40px;
+}
+.selling span{
+  font-size: 80%;
+  font-family: helvetica-Bold;
+  line-height: 35px;
+  color: #FFFFFF;
+}
 
 /*-------------Menuorder_Right-------------------------------------*/
 
@@ -360,6 +497,10 @@
 
 
 /*---------------------View-Cart--------------------------------*/
+.wrap-viewCart{
+  margin-left: 0px !important;
+}
+
 .iconClose{
   display: none;
 }
@@ -377,7 +518,7 @@
 }
 
 .titelCart>.hr-describeDetails{
-  width: 300px;
+  width: 100%;
   height: 3px;
   background-color: #FC6703;
   float: left;
@@ -559,4 +700,427 @@
   background-color: white;
   color: black;
   border: 1px solid #FC6703;
+}
+
+.describeDetails{
+  padding-bottom: 30px;
+}
+
+.describeDetails .hr-describeDetails{
+  width: 100% !important;
+}
+
+/*.container{
+  background-color: #2B0606;
+}*/
+/*----------------------------showSuccess------------------------*/
+.showSuccess .titelCart h3{
+  padding-top: 10px;
+  text-align: center;
+}
+
+.showSuccess .titelCart .hr-describeDetails{
+  margin: auto;
+  float: none;
+}
+
+.showSuccess  .oderNow{
+  width: 178px;
+  margin: auto;
+}
+
+.showSuccess .titelCart p{
+  text-align: center;
+  font-size: 130%;
+}
+
+/*----------------------------Responsive------------------------*/
+
+@media only screen and (max-width: 1199px) and (min-width: 992px){
+  .fa-star{
+    font-size: 80%;
+  }
+  .starDish{
+    left: 143px !important;
+  }
+  .card-body .amountDetails{
+    margin: 0px;
+    float: left;
+  }
+  .iteam-frontmain {
+    height: 510px;
+  }
+}
+
+@media only screen and (max-width: 991px) and (min-width: 769px){
+  *{
+    font-size: 14px !important;
+  }
+  .nav-control {
+    height: auto;
+  }
+  .nav-ct{
+    position: relative;
+  }
+  .toggler-ct{
+    position: absolute;
+    right: 20px;
+    top: 30px;
+  }
+  .nav-LeftIn{
+    position: absolute;
+    left: 57%;
+    top: 30px;
+  }
+  .choosePrice form ,
+  .chooseStart form{
+    display: flex;
+  }
+  .choosePrice h5,
+  .chooseStart h5{
+    margin-left: 15px;
+  }
+  #productOder .menuorder-searchbox .search{
+    top: 15px !important;
+  }
+  #footer .social-icons i{
+    font-size: 170% !important;
+  }
+  .icon-footer{
+    margin-left: 40% !important;
+  }
+  .iteam-frontmain {
+    height: 400px !important;
+  }
+  .card-text {
+    height: 42px;
+  }
+  .card-body .amountDetails {
+    float: left;
+    margin: 0px;
+  }
+  .btn-OderIteam {
+    margin-top: 10px;
+  }
+  .wrapControl {
+    margin-bottom: 20px;
+  }
+  .bt-next i,
+  .bt-previous i{
+    font-size: 210% !important;
+  }
+  .picture-titel{
+    bottom: 85px !important;
+  }
+}
+@media only screen and (max-width: 768px) and (min-width: 576px){
+  *{
+    font-size: 9px !important;
+  }
+  .nav-control {
+    height: auto;
+  }
+  .nav-ct{
+    position: relative;
+  }
+  .toggler-ct{
+    position: absolute;
+    right: 20px;
+    top: 30px;
+  }
+  .nav-LeftIn{
+    position: absolute;
+    left: 60%;
+    top: 30px;
+  }
+  .choosePrice form ,
+  .chooseStart form{
+    display: flex;
+  }
+  .choosePrice h5,
+  .chooseStart h5{
+    margin-left: 15px;
+  }
+  .LoginRegistration {
+    margin-right: 10px;
+    display: flex;
+  }
+  .amountOder{
+    width: 13px;
+    height: 13px;
+    border-radius: 13px;
+  }
+  .menuorder-searchbox input{
+    height: 33px !important;
+  }
+  .menuorder-list-prod-box{
+    height: 100px !important;
+  }
+  .cart-iteam{
+    height: 50px !important;
+  }
+  .amount-dish{
+    width: 20px;
+    height: 20px;
+  }
+  .amount-dish span{
+    top: 3px;
+    left: 8px;
+  }
+  .menuorder_action button{
+    height: 23px !important;
+  }
+  .cart-subtotal{
+    height: 30px;
+    line-height: 30px;
+  }
+  #footer .social-icons{
+    width: 29px !important;
+    height: 29px !important;
+    border-radius: 29px !important;
+  }
+  #footer .social-icons i{
+    left: 6px !important;
+    font-size: 170% !important;
+  }
+  #productOder .starDish{
+    left: 120px !important;
+  }
+  #productOder .menuorder-searchbox .search{
+    top: 15px !important;
+  }
+  #footer .icon-footer{
+    margin-left: 40% !important;
+  }
+  .iteam-frontmain {
+    height: 405px !important;
+  }
+  .nameDetails {
+    padding-bottom: 9px;
+    margin-top: 9px;
+  }
+  .productDetails .wrapControl{
+    height: 282px;
+    margin-bottom: 0px;
+  }
+  .bt-next i,
+  .bt-previous i{
+    font-size: 280% !important;
+  }
+  .simpleSlider{  
+    height: 287px;
+  }
+}
+@media only screen and (max-width: 575px) and (min-width: 430px){
+  * {
+    font-size: 14px !important;
+  }
+  .nav-control {
+    height: auto;
+  }
+  .nav-ct{
+    position: relative;
+  }
+  .toggler-ct{
+    position: absolute;
+    right: 20px;
+    top: 30px;
+  }
+  .nav-LeftIn{
+    position: absolute;
+    left: 30% !important;
+    top: 30px;
+  }
+  #productOder .menuorder-searchbox .search{
+    top: 15px !important;
+  }
+  .menuorder-list-prod-box {
+    height: 130px !important;
+  }
+  .starDish {
+    left: 182px !important;
+  }
+  .nav-LeftIn {
+    left: 44%;
+  }
+  .amountOder{
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+  }
+  .choosePrice form ,
+  .chooseStart form{
+    display: flex;
+  }
+  .choosePrice h5,
+  .chooseStart h5{
+    margin-left: 15px;
+  }
+  .devvn_menuorder_right{
+    display: none !important;
+  }
+  #footer .icon-footer{
+    margin-left: 40% !important;
+  }
+  #footer .social-icons{
+    width: 29px !important;
+    height: 29px !important;
+    border-radius: 29px !important;
+  }
+  #footer .social-icons i{
+    left: 5px !important;
+    font-size: 130% !important;
+  }
+  .card-text {
+    height: 42px;
+  }
+  .card-body .amountDetails {
+    float: left;
+    margin: 0px;
+  }
+  .btn-OderIteam {
+    margin-top: 10px;
+  }
+  .iteam-frontmain {
+    height: 430px !important;
+  }
+  .imageDetails{
+    padding: 15px;
+  }
+  .bt-next i,
+  .bt-previous i{
+    font-size: 200% !important;
+  }
+  .simpleSlider{  
+    height: 287px;
+  }
+}
+
+@media only screen and (max-width: 454px){
+  * {
+    font-size: 10px !important;
+  }
+  .iteam-frontmain {
+    height: 340px !important;
+  }
+  .card-body .amountDetails {
+    float: left;
+    margin: 0px;
+  }
+  .btn-OderIteam {
+    margin-top: 10px;
+  }
+  .simpleSlider{  
+    height: 232px;
+  }
+}
+
+@media only screen and (max-width: 429px){
+  * {
+    font-size: 10px !important;
+  }
+  .nav-control {
+    height: auto;
+  }
+  .nav-ct{
+    position: relative;
+  }
+  .toggler-ct{
+    position: absolute;
+    right: 20px;
+    top: 30px;
+  }
+  .nav-LeftIn{
+    position: absolute;
+    left: 35% !important;
+    top: 30px;
+  }
+  #productOder .menuorder-searchbox .search{
+    top: 18px !important;
+  }
+  #productOder .menuorder-searchbox .search i{
+    font-size: 120% !important;
+  }
+  .menuorder-list-prod-box {
+    height: 130px !important;
+  }
+  .starDish {
+    left: 120px !important;
+  }
+  .nav-LeftIn {
+    left: 44%;
+  }
+  .amountOder{
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+  }
+  .choosePrice form ,
+  .chooseStart form{
+    display: flex;
+  }
+  .choosePrice h5,
+  .chooseStart h5{
+    margin-left: 15px;
+  }
+  .devvn_menuorder_right{
+    display: none !important;
+  }
+  #footer .icon-footer{
+    margin-left: 40% !important;
+  }
+  #footer .social-icons{
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 18px !important;
+  }
+  #footer .social-icons i{
+    left: 2px !important;
+    top: 2px !important;
+    font-size: 130% !important;
+  }
+  .menuorder-list-prod-box{
+    height: 108px !important;
+  }
+  .amountOder{
+    width: 13px;
+    height: 13px;
+    border-radius: 13px;
+  }
+  .bt-next i,
+  .bt-previous i{
+    font-size: 210% !important;
+  }
+  .fadeIn.fourth {
+    padding: 15px;
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 370px){
+  * {
+    font-size: 10px !important;
+  }
+  .logoCoffee {
+    width: 75px;
+    height: 51px;
+  }
+  .nav-LeftIn {
+    left: 44% !important;
+    top: 4px;
+  }
+  .LoginRegistration {
+    margin-right: 11px;
+  }
+  .toggler-ct {
+    position: absolute;
+    right: 15px;
+    top: 36px;
+  }
+  .#productOder .prod-desc{
+    line-height: 15px !important;
+  }
+  .simpleSlider{  
+    height: 183px;
+  }
 }

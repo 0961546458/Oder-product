@@ -1,0 +1,25 @@
+.wrapIfms{
+	clear: both;
+	margin-left: 20px;
+}
+
+.wrapIfms h5{
+  color: #FC6703;
+}
+.wrapIfms span{
+	
+}
+
+.dateOder{
+	clear: both;
+	margin-left: 20px;
+	margin-top: 60px;
+}
+.dateOder div{
+	display: inline-block;
+	font-size: 120%;
+	color: #FA1010;
+}
+.dateOder span{
+	margin-left: 5px;
+}

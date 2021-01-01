@@ -85,16 +85,14 @@ function ProductDetails() {
     }
   }
 
-const handleRadioBox = (e, name) =>{
-    setMedium(false); 
-    setBig(false);
+  const handleRadioBox = (e, name) =>{
     switch (name) {
       case 'small':
         setSmall(true);setBig(false);setMedium(false);
         setSumbox((productDetails && productDetails.price));
 
         break;
-      case 'middel':
+      case 'medium':
         setMedium(true);setSmall(false); setBig(false); 
         setSumbox((productDetails && productDetails.price) + 6000);
 
@@ -109,7 +107,6 @@ const handleRadioBox = (e, name) =>{
     }
   }
 
-
   useEffect(() => {
        setSumbox(productDetails && productDetails.price);
   },[productDetails]);
@@ -117,29 +114,29 @@ const handleRadioBox = (e, name) =>{
   return (
   	<div className="productDetails shadowBox">
   		<div className="row wrapControl">
-  			<div className="col-sm-6 imageDetails">
+  			<div className="col-sm-6 col-6 imageDetails">
 	  			<img className="img-in" src={productDetails.image} alt="sda"/>
           <div className="picture-titel">
             <h3>{productDetails.name}</h3>
           </div>
 	  		</div>
-	  		<div className="col-sm-6 controlDetails">
+	  		<div className="col-sm-6 col-6 controlDetails">
 	  			<h3 className="nameDetails">{productDetails.name}</h3>
 	  			<i className="fas fa-times iconClose" onClick={closeDetails}></i>
 	  			<div className="menuorder-topping">
 	  				<div className="topping-titel">Size:</div>
 	  				<div className="row">
 	  					<p className="topping-checkbox-list">
-						    <input type="radio" id="test1" name="radio-group" onClick={(e)=>handleRadioBox(e,'small')}  defaultChecked/>
+						    <input type="radio" id="test1" name="radio-group" onClick={(e)=>handleRadioBox(e,'small')} defaultChecked/>
 						    <label htmlFor="test1">Nhỏ</label>
 						  </p>
 						  <p className="topping-checkbox-list">
-						    <input type="radio" id="test2" name="radio-group" onClick={(e)=>handleRadioBox(e,'middel')} />
+						    <input type="radio" id="test2" name="radio-group" onClick={(e)=>handleRadioBox(e,'medium')} />
 						    <label htmlFor="test2">Vừa (+6000đ)</label>
 						  </p>
 						  <p className="topping-checkbox-list">
 						    <input type="radio" id="test3" name="radio-group" onClick={(e)=>handleRadioBox(e,'big')}  />
-						    <label htmlFor="test3">Lớn (+13000)</label>
+						    <label htmlFor="test3">Lớn (+13,000)</label>
 						  </p>
 	  				</div>
 	  			</div>
